@@ -6,8 +6,10 @@ To run the dev environment:
 
 ```sh
 npm install
-npm run start:dev
+npm run watch
 ```
+
+You can access the Nest.JS website at this URL: http://localhost:4000
 
 You can access the REST API at this URL: http://localhost:3000
 
