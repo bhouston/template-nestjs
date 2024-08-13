@@ -1,0 +1,22 @@
+{
+  "name": "api-wrapper",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "options": {
+        "commands": [
+          "npx @openapitools/openapi-generator-cli generate -i http://localhost:3000/api-docs-json -g typescript-fetch -c openapi-generator-config.json -o .",
+          "tsc",
+          "tsc -p tsconfig.esm.json"
+        ]
+      }
+    },
+    "watch": {
+      "options": {
+        "commands": ["tsc", "tsc -p tsconfig.esm.json"],
+        "watch": true,
+        "parallel": true
+      }
+    }
+  }
+}
