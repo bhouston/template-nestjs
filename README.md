@@ -1,11 +1,28 @@
 # Learning NestJS
 
-# Run Dev Environment
+## Common Commands
 
-To run the dev environment:
+### Installation
+
+Install all node modules:
 
 ```sh
 npm install
+```
+
+### Testing
+
+To run all tests:
+
+```sh
+npm run test
+```
+
+### Dev Environment
+
+To get the hot-reloading dev environment:
+
+```sh
 npm run watch
 ```
 
