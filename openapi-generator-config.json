@@ -1,0 +1,12 @@
+{
+  "apiNameSuffix": "",
+  "modelNameSuffix": "",
+  "apiPackage": "api",
+  "modelPackage": "models",
+  "supportsES6": true,
+  "withInterfaces": true,
+  "stringEnums": true,
+  "enumClassPrefix": false,
+  "npmName": "api-wrapper",
+  "npmVersion": "0.0.1"
+}

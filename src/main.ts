@@ -1,7 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import {
+  DocumentBuilder,
+  SwaggerDocumentOptions,
+  SwaggerModule,
+} from '@nestjs/swagger';
 
 const initializeGlobalValidation = (app: INestApplication<any>) => {
   app.useGlobalPipes(
@@ -23,8 +27,13 @@ const initializeSwagger = (app: INestApplication<any>) => {
     .addTag('orgs', 'Operations related to organizations')
     .build();
 
+  const options: SwaggerDocumentOptions = {
+    operationIdFactory: (controllerKey: string, methodKey: string) =>
+      `${controllerKey.replace('Controller', '')}_${methodKey}`,
+  };
+
   // Create Swagger document
-  const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, config, options);
 
   // Set up the Swagger module
   SwaggerModule.setup('api-docs', app, document);

@@ -54,3 +54,17 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+src/api-wrapper/.gitignore
+src/api-wrapper/.npmignore
+src/api-wrapper/.openapi-generator-ignore
+src/api-wrapper/package.json
+src/api-wrapper/README.md
+src/api-wrapper/tsconfig.esm.json
+src/api-wrapper/tsconfig.json
+src/api-wrapper/.openapi-generator/FILES
+src/api-wrapper/.openapi-generator/VERSION
+src/api-wrapper/src/index.ts
+src/api-wrapper/src/runtime.ts
+src/api-wrapper/src/apis/index.ts
+src/api-wrapper/src/apis/OrgsApi.ts
+src/api-wrapper/src/apis/UsersApi.ts
