@@ -1,0 +1,13 @@
+.gitignore
+.npmignore
+.openapi-generator-ignore
+README.md
+package.json
+src/apis/FilesApi.ts
+src/apis/OrgsApi.ts
+src/apis/UsersApi.ts
+src/apis/index.ts
+src/index.ts
+src/runtime.ts
+tsconfig.esm.json
+tsconfig.json
