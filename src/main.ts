@@ -19,7 +19,8 @@ const initializeSwagger = (app: INestApplication<any>) => {
     .setTitle('My API')
     .setDescription('The API description')
     .setVersion('1.0')
-    .addTag('users')
+    .addTag('users', 'Operations related to users')
+    .addTag('orgs', 'Operations related to organizations')
     .build();
 
   // Create Swagger document
