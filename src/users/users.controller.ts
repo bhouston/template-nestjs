@@ -17,6 +17,19 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @Post('login')
+  async login(@Body() loginDto: { username: string; password: string }) {
+    const user = await this.usersService.validateUser(
+      loginDto.username,
+      loginDto.password,
+    );
+    if (!user) {
+      // Handle unauthorized access
+      return { message: 'Invalid credentials' };
+    }
+    return this.usersService.login(user);
+  }
+
   @Post()
   @ApiOperation({ summary: 'Create a new user' })
   @ApiResponse({ status: 201, description: 'The user has been created.' })
