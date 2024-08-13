@@ -9,18 +9,19 @@ import {
   UploadedFile,
   UseInterceptors,
   ParseFilePipeBuilder,
+  UploadedFiles,
 } from '@nestjs/common';
 import { FilesService } from './files.service';
 import { CreateFileDto } from './dto/create-file.dto';
 import { UpdateFileDto } from './dto/update-file.dto';
-import { FileInterceptor } from '@nestjs/platform-express';
-import { ApiBody, ApiConsumes } from '@nestjs/swagger';
+import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
+import { ApiBody, ApiConsumes, ApiOperation } from '@nestjs/swagger';
 
 @Controller('files')
 export class FilesController {
   constructor(private readonly filesService: FilesService) {}
 
-  @Post('upload')
+  /*@Post('upload')
   @UseInterceptors(FileInterceptor('file'))
   @ApiBody({
     required: true,
@@ -50,6 +51,49 @@ export class FilesController {
   ) {
     console.log(file);
     return 'uploaded!';
+  }*/
+
+  @Patch('/upload')
+  @ApiOperation({ summary: 'Uploads a single file' })
+  @ApiConsumes('multipart/form-data')
+  @UseInterceptors(FileInterceptor('file'))
+  @ApiBody({
+    required: true,
+    schema: {
+      type: 'object',
+      properties: {
+        file: {
+          type: 'string',
+          format: 'binary',
+        },
+      },
+    },
+  })
+  upload(@UploadedFile() file: File) {
+    return console.log(file);
+  }
+
+  @Patch('/uploadMultiple')
+  @ApiConsumes('multipart/form-data')
+  @ApiOperation({ summary: 'Uploads multiple files' })
+  @UseInterceptors(FilesInterceptor('files', 4))
+  @ApiBody({
+    required: true,
+    schema: {
+      type: 'object',
+      properties: {
+        files: {
+          type: 'array',
+          items: {
+            type: 'string',
+            format: 'binary',
+          },
+        },
+      },
+    },
+  })
+  uploadMultiple(@UploadedFiles() files: Array<File>) {
+    return console.log(files);
   }
 
   @Get()
