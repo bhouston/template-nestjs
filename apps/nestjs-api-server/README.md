@@ -27,7 +27,7 @@ npm run gen-api-wrapper
 
 # TODO
 
-Add in nx builing with multiple packages, a NestJS-based API server, a user+org service, JWT authentication, and a Next.js website
+Add in nx builing with multiple packages, a NestJS-based API server, a user+org service, and a Next.js website
 
 - /apps
   - /next-app
