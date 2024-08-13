@@ -1,7 +1,19 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Image from 'next/image';
+import styles from './page.module.css';
+import { Configuration, FilesApi, UsersApi } from 'api-wrapper';
 
-export default function Home() {
+export default async function Home() {
+  const configuration: Configuration = new Configuration({
+    basePath: 'http://localhost:3000'
+  });
+  const usersApi = new UsersApi(configuration);
+  const loginResponse = await usersApi.usersLogin({
+    username: 'admin',
+    password: 'admin'
+  } as RequestInit);
+
+  console.log(loginResponse);
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -15,7 +27,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{" "}
+            By{' '}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
