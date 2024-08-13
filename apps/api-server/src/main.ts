@@ -4,7 +4,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import {
   DocumentBuilder,
   SwaggerDocumentOptions,
-  SwaggerModule,
+  SwaggerModule
 } from '@nestjs/swagger';
 
 const initializeGlobalValidation = (app: INestApplication<any>) => {
@@ -12,8 +12,8 @@ const initializeGlobalValidation = (app: INestApplication<any>) => {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
-      transform: true,
-    }),
+      transform: true
+    })
   );
 };
 
@@ -30,7 +30,7 @@ const initializeSwagger = (app: INestApplication<any>) => {
 
   const options: SwaggerDocumentOptions = {
     operationIdFactory: (controllerKey: string, methodKey: string) =>
-      `${controllerKey.replace('Controller', '')}_${methodKey}`,
+      `${controllerKey.replace('Controller', '')}_${methodKey}`
   };
 
   // Create Swagger document
@@ -42,12 +42,12 @@ const initializeSwagger = (app: INestApplication<any>) => {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  initializeGlobalValidation(app);
   app.setGlobalPrefix('api');
 
+  initializeGlobalValidation(app);
   initializeSwagger(app);
 
   await app.listen(3000);
 }
+
 bootstrap();
