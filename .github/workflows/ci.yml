@@ -59,4 +59,4 @@ jobs:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
           project_id: ${{ env.PROJECT_ID }}
           service_name: demo-${{ matrix.service }}
-          docker_file: ./apps/${{ matrix.service }}/Dockerfile
+          dockerfile: ./apps/${{ matrix.service }}/Dockerfile
