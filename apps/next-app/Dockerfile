@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 # copy all
 COPY . ./
 
-RUN npm ci --include-workspace-root -w nest-app --audit=false --fund=false
+RUN npm ci --include-workspace-root -w next-app --audit=false --fund=false
 
 ENV NODE_ENV=production
 
