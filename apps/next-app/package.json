@@ -5,7 +5,8 @@
   "scripts": {
     "watch": "next dev --turbo -p 4000 --experimental-https",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:-8080}",
+    "start:next-app": "next start -p ${PORT:-8080}",
     "lint": "next lint"
   },
   "dependencies": {

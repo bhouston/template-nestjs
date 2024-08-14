@@ -7,6 +7,8 @@ import {
   SwaggerModule
 } from '@nestjs/swagger';
 
+const PORT = Number.parseInt(process.env.PORT ?? '3000');
+
 const initializeGlobalValidation = (app: INestApplication<any>) => {
   app.useGlobalPipes(
     new ValidationPipe({
@@ -47,7 +49,7 @@ async function bootstrap() {
   initializeGlobalValidation(app);
   initializeSwagger(app);
 
-  await app.listen(3000);
+  await app.listen(PORT);
 }
 
 bootstrap();
