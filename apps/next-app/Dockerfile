@@ -9,8 +9,8 @@ RUN npm ci --include-workspace-root -w nest-app --audit=false --fund=false
 
 ENV NODE_ENV=production
 
-RUN npx nx run-many -t build -p nest-app
+RUN npx nx run-many -t build -p next-app
 
 # run server
 EXPOSE 8080
-CMD ["npm", "run", "start:nest-app"]
+CMD ["npm", "run", "start:next-app"]
