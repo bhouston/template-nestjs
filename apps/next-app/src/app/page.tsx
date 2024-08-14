@@ -3,7 +3,7 @@ import styles from './page.module.css';
 import { Configuration, FilesApi, UsersApi } from 'api-wrapper';
 
 export default async function Home() {
-  const configuration: Configuration = new Configuration({
+  /*const configuration: Configuration = new Configuration({
     basePath: 'http://localhost:3000'
   });
   const usersApi = new UsersApi(configuration);
@@ -12,7 +12,7 @@ export default async function Home() {
     password: 'admin'
   } as RequestInit);
 
-  console.log(loginResponse);
+  console.log(loginResponse);*/
 
   return (
     <main className={styles.main}>
