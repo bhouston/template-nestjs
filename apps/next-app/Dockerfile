@@ -13,4 +13,4 @@ RUN npx nx run-many -t build -p next-app
 
 # run server
 EXPOSE 8080
-CMD ["npm", "run", "start:next-app"]
+CMD ["npm", "run", "start", "-w", "api-server"]
